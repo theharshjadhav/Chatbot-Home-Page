@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+*{
+    font-family: "Poppins";
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    position: relative;
+    width: 400px;
+    height: 500px;
+    background-color: white;
+    border: 1px solid #ccc;
+    overflow: auto; /* Enable scrolling for the entire container */
+    border-radius: 30px; /* Add border-radius to create rounded corners */
+    box-shadow: -4px -2px 10px -3px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -4px -2px 10px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: -4px -2px 10px -3px rgba(0,0,0,0.75);
+}
+
+.top-section {
+    position: sticky; /* Ensure sticky behavior */
+    top: 0;
+    z-index: 2; /* Ensure .top-section is above .bottom-section */
+    overflow: hidden; /* Hide overflow to prevent scroll */
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+}
+
+.top-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.background-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Adjust as needed for the gradient height */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, white 100%);
+    pointer-events: none;
+    z-index: 1; /* Ensure the gradient background is behind other content */
+}
+
+.bottom-section {
+    padding: 20px; /* Adjust padding to create space around the rectangles */
+    overflow-y: auto; /* Enable vertical scroll for .bottom-section */
+    position: relative; /* Ensure stacking context */
+    z-index: 2; /* Ensure .bottom-section is above .container::after */
+    margin-top: -50px; /* Move the .bottom-section up */
+}
+
+.rectangle {
+    width: 100%;
+    height: 70px;
+    background-color: #ccc;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.164);
+    border-radius: 15px; /* Add border-radius to create rounded corners */
+}
+
+.bottom-bar {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    width: 100%;
+    height: 50px; /* Adjust height as needed */
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: sticky; /* Fixed position relative to .container */
+    bottom: 0; /* Stick to the bottom */
+    z-index: 1000; /* Ensure it stays above other content */
+    box-shadow: -1px -3px 10px -3px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px -3px 10px -3px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px -3px 10px -3px rgba(0,0,0,0.75);
+}
+
+.bottom-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bottom-button img {
+    width: 30px; /* Adjust icon size as needed */
+    height: 30px;
+}
+
+.bottom-button div {
+    font-size: 15px;
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+.container::-webkit-scrollbar {
+    display: none;
+}
+/* Track */
+.container::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Light grey */
+}
+/* Thumb */
+.container::-webkit-scrollbar-thumb {
+    background: #888; /* Dark grey */
+    border-radius: 10px;
+}
+
+/* Hover state */
+.container::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Darker grey */
+}
+/* Firefox */
+.container {
+    scrollbar-width: thin;
+    scrollbar-color: #888 #f1f1f1;
+}
+
+/* Edge */
+@supports (-ms-overflow-style: none) {
+    .container {
+        -ms-overflow-style: none; /* Hide scrollbar for Edge */
+        scrollbar-width: thin;
+        scrollbar-color: #888 #f1f1f1;
+    }
+}
